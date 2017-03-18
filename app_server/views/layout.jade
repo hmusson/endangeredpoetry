@@ -5,7 +5,22 @@ html
     title= title
     link(rel='stylesheet', href='/bootstrap/css/main.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+
   body
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='/') NavBar
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            #navbar-main.navbar-collapse.collapse
+              ul.nav.navbar-nav
+                li
+                  a(href='/about/') About
+                li
+                  a(href='/location') Locations
     block content
     script(src='/javascripts/jquery-1.11.1.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
