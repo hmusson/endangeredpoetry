@@ -10,7 +10,7 @@ module.exports.locationInfo = function(req, res){
 
 /* GET 'poem' page */
 module.exports.poemList = function(req, res){
-	res.render('benjitest', { title: 'Poem' });
+	res.render('singlepoemtest', { title: 'Poem' });
 };
 
 /* GET 'Add review' page */
