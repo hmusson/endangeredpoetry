@@ -6,13 +6,13 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
-/* POST a new review, providing a locationid */
-/* /api/locations/:locationid/reviews */
-module.exports.reviewsCreate = function(req, res) {
+/* POST a new review, providing a poemid */
+/* /api/poems/:poemid/comments */
+module.exports.commentsCreate = function(req, res) {
   if (req.params.locationid) {
     Loc
       .findById(req.params.locationid)
-      .select('reviews')
+      .select('comments')
       .exec(
         function(err, location) {
           if (err) {
@@ -24,29 +24,29 @@ module.exports.reviewsCreate = function(req, res) {
     );
   } else {
     sendJSONresponse(res, 404, {
-      "message": "Not found, locationid required"
+      "message": "Not found, poemid required"
     });
   }
 };
 
 
-var doAddReview = function(req, res, location) {
-  if (!location) {
+var doAddComment = function(req, res, poem) {
+  if (!poem) {
     sendJSONresponse(res, 404, "locationid not found");
   } else {
-    location.reviews.push({
+    poem.comments.push({
       author: req.body.author,
       rating: req.body.rating,
       reviewText: req.body.reviewText
     });
-    location.save(function(err, location) {
-      var thisReview;
+    poem.save(function(err, poem) {
+      var thisComment;
       if (err) {
         sendJSONresponse(res, 400, err);
       } else {
-        updateAverageRating(location._id);
-        thisReview = location.reviews[location.reviews.length - 1];
-        sendJSONresponse(res, 201, thisReview);
+        updateAverageRating(poem._id);//maybe take this line out?
+        thisComment = poem.reviews[poem.reviews.length - 1];
+        sendJSONresponse(res, 201, thisComment);
       }
     });
   }
