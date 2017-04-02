@@ -2,19 +2,19 @@
 
 var express = require('express');
 var router = express.Router();
-var ctrlLocations = require('../controllers/locations');
-var ctrlReviews = require('../controllers/reviews');
+var ctrlPoems = require('../controllers/poems');
+var ctrlComments = require('../controllers/comments');
 
-router.get('/locations', ctrlLocations.locationsListByDistance);
-router.post('/locations', ctrlLocations.locationsCreate);
-router.get('/locations/:locationid', ctrlLocations.locationsReadOne);
-router.put('/locations/:locationid', ctrlLocations.locationsUpdateOne);
-router.delete('/locations/:locationid', ctrlLocations.locationsDeleteOne);
+router.get('/poems', ctrlPoems.locationsListByDistance);
+router.post('/poems', ctrlPoems.locationsCreate);
+router.get('/poems/:poemid', ctrlPoems.locationsReadOne);
+router.put('/poems/:poemid', ctrlPoems.locationsUpdateOne);
+router.delete('/poems/:poemid', ctrlPoems.locationsDeleteOne);
 
 // reviews
-router.post('/locations/:locationid/reviews', ctrlReviews.reviewsCreate);
-router.get('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsReadOne);
-router.put('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsUpdateOne);
-router.delete('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsDeleteOne);
+router.post('/poems/:poemid/comments', ctrlComments.reviewsCreate);
+router.get('/poems/:poemid/comments/:commentid', ctrlComments.reviewsReadOne);
+router.put('/poems/:poemid/comments/:commentid', ctrlComments.reviewsUpdateOne);
+router.delete('/poems/:poemid/comments/:commentid', ctrlComments.reviewsDeleteOne);
 
 module.exports = router;
