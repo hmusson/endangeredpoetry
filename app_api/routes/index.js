@@ -24,7 +24,7 @@ router.delete('/poems/:poemid', ctrlPoems.poemsDeleteOne); //mmmmove to the tras
 // router.put('/poems/:poemid/comments/:commentid', ctrlComments.reviewsUpdateOne);
 // router.delete('/poems/:poemid/comments/:commentid', ctrlComments.reviewsDeleteOne);
 
-//new comments routes, I've done the commentsCreate and commentsUpdateOne
+//BF 4/5/17 new comments routes, I've done the commentsCreate and commentsUpdateOne
 //read and delete still have to be done
 router.post('/poems/:poemid/comments', ctrlComments.commentsCreate);
 router.get('/poems/:poemid/comments/:commentid', ctrlComments.commentsReadOne);
