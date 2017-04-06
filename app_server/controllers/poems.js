@@ -24,6 +24,7 @@ var apiOptions = {
   server : "http://localhost:3000"
 };
 if (process.env.NODE_ENV === 'production') {
+  //we'll need to change the heroku url
   apiOptions.server = "https://getting-mean-loc8r.herokuapp.com";
 }
 
@@ -67,24 +68,49 @@ var _showError = function (req, res, status) {
 };
 
 var renderHomepage = function(req, res, responseBody){
-  res.render('poems-list', {
+  res.render('poem-list', {
     title: 'Endangered Poetry -- Poems about endangered animals',
     pageHeader: {
       title: 'Endangered Poetry',
       strapline: 'Endangered Plants + Animals!'
     },
-    sidebar: "Looking to help endangered plants + animals ? This site helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Endangered Poetry help you find the place you're looking for."
+    sidebar: "Looking to help endangered plants + animals? This site helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Endangered Poetry help you find the place you're looking for."
    });
 };
 
 /* GET 'home' page */
-module.exports.homelist = function(req, res){
+module.exports.poemlist = function(req, res){
   renderHomepage(req, res);
 };
 
-var getLocationInfo = function (req, res, callback) {
+// var getLocationInfo = function (req, res, callback) {
+//   var requestOptions, path;
+//   path = "/api/locations/" + req.params.locationid;
+//   requestOptions = {
+//     url : apiOptions.server + path,
+//     method : "GET",
+//     json : {}
+//   };
+//   request(
+//     requestOptions,
+//     function(err, response, body) {
+//       var data = body;
+//       if (response.statusCode === 200) {
+//         data.coords = {
+//           lng : body.coords[0],
+//           lat : body.coords[1]
+//         };
+//         callback(req, res, data);
+//       } else {
+//         _showError(req, res, response.statusCode);
+//       }
+//     }
+//   );
+// };
+
+var getPoemInfo = function (req, res, callback) {
   var requestOptions, path;
-  path = "/api/locations/" + req.params.locationid;
+  path = "/api/poems/" + req.params.poemid;
   requestOptions = {
     url : apiOptions.server + path,
     method : "GET",
@@ -107,50 +133,108 @@ var getLocationInfo = function (req, res, callback) {
   );
 };
 
-var renderDetailPage = function (req, res, locDetail) {
-  res.render('location-info', {
-    title: locDetail.name,
-    pageHeader: {title: locDetail.name},
-    sidebar: {
-      context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
-      callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
-    },
-    location: locDetail
-  });
-};
+//This one might have to be added back or modified for our site
+// var renderDetailPage = function (req, res, locDetail) {
+//   res.render('location-info', {
+//     title: locDetail.name,
+//     pageHeader: {title: locDetail.name},
+//     sidebar: {
+//       context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
+//       callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
+//     },
+//     location: locDetail
+//   });
+// };
 
-/* GET 'Location info' page */
-module.exports.locationInfo = function(req, res){
-  getLocationInfo(req, res, function(req, res, responseData) {
+
+// /* GET 'Location info' page */
+// module.exports.locationInfo = function(req, res){
+//   getLocationInfo(req, res, function(req, res, responseData) {
+//     renderDetailPage(req, res, responseData);
+//   });
+// };
+
+/* GET 'Poem info' page */
+module.exports.poemInfo = function(req, res){
+  getPoe,Info(req, res, function(req, res, responseData) {
     renderDetailPage(req, res, responseData);
   });
 };
 
-var renderReviewForm = function (req, res, locDetail) {
-  res.render('location-review-form', {
-    title: 'Review ' + locDetail.name + ' on Loc8r',
-    pageHeader: { title: 'Review ' + locDetail.name },
+// var renderReviewForm = function (req, res, locDetail) {
+//   res.render('location-review-form', {
+//     title: 'Review ' + locDetail.name + ' on Loc8r',
+//     pageHeader: { title: 'Review ' + locDetail.name },
+//     error: req.query.err,
+//     url: req.originalUrl
+//   });
+// };
+
+var renderCommentForm = function (req, res, pomDetail) {
+  res.render('poem-comment-form', {
+    title: 'Comment ' + pomDetail.name + ' on This Poem',
+    pageHeader: { title: 'Comment ' + pomDetail.name },
     error: req.query.err,
     url: req.originalUrl
   });
 };
 
-/* GET 'Add review' page */
-module.exports.addReview = function(req, res){
-  getLocationInfo(req, res, function(req, res, responseData) {
-    renderReviewForm(req, res, responseData);
+// /* GET 'Add review' page */
+// module.exports.addReview = function(req, res){
+//   getLocationInfo(req, res, function(req, res, responseData) {
+//     renderReviewForm(req, res, responseData);
+//   });
+// };
+
+/* GET 'Add comment' page */
+module.exports.addComment = function(req, res){
+  getPoemInfo(req, res, function(req, res, responseData) {
+    renderCommentForm(req, res, responseData);
   });
 };
 
-/* POST 'Add review' page */
-module.exports.doAddReview = function(req, res){
-  var requestOptions, path, locationid, postdata;
-  locationid = req.params.locationid;
-  path = "/api/locations/" + locationid + '/reviews';
+// /* POST 'Add review' page */
+// module.exports.doAddReview = function(req, res){
+//   var requestOptions, path, locationid, postdata;
+//   locationid = req.params.locationid;
+//   path = "/api/locations/" + locationid + '/reviews';
+//   postdata = {
+//     author: req.body.name,
+//     rating: parseInt(req.body.rating, 10),
+//     reviewText: req.body.review
+//   };
+//   requestOptions = {
+//     url : apiOptions.server + path,
+//     method : "POST",
+//     json : postdata
+//   };
+//   if (!postdata.author || !postdata.rating || !postdata.reviewText) {
+//     res.redirect('/location/' + locationid + '/reviews/new?err=val');
+//   } else {
+//     request(
+//       requestOptions,
+//       function(err, response, body) {
+//         if (response.statusCode === 201) {
+//           res.redirect('/location/' + locationid);
+//         } else if (response.statusCode === 400 && body.name && body.name === "ValidationError" ) {
+//           res.redirect('/location/' + locationid + '/reviews/new?err=val');
+//         } else {
+//           console.log(body);
+//           _showError(req, res, response.statusCode);
+//         }
+//       }
+//     );
+//   }
+// };
+
+/* POST 'Add Comment' page */
+module.exports.doAddComment = function(req, res){
+  var requestOptions, path, poemid, postdata;
+  poemid = req.params.poemid;
+  path = "/api/poems/" + poemid + '/comments';
   postdata = {
     author: req.body.name,
-    rating: parseInt(req.body.rating, 10),
-    reviewText: req.body.review
+    commentText: req.body.comment
   };
   requestOptions = {
     url : apiOptions.server + path,
@@ -158,15 +242,15 @@ module.exports.doAddReview = function(req, res){
     json : postdata
   };
   if (!postdata.author || !postdata.rating || !postdata.reviewText) {
-    res.redirect('/location/' + locationid + '/reviews/new?err=val');
+    res.redirect('/poem/' + poemid + '/comments/new?err=val');
   } else {
     request(
       requestOptions,
       function(err, response, body) {
         if (response.statusCode === 201) {
-          res.redirect('/location/' + locationid);
+          res.redirect('/poem/' + poemid);
         } else if (response.statusCode === 400 && body.name && body.name === "ValidationError" ) {
-          res.redirect('/location/' + locationid + '/reviews/new?err=val');
+          res.redirect('/poem/' + poemid + '/comments/new?err=val');
         } else {
           console.log(body);
           _showError(req, res, response.statusCode);
