@@ -74,7 +74,7 @@ var renderHomepage = function(req, res, responseBody){
       title: 'Endangered Poetry',
       strapline: 'Endangered Plants + Animals!'
     },
-    sidebar: "Looking to help endangered plants + animals? This site helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Endangered Poetry help you find the place you're looking for."
+    sidebar: "Looking to help endangered plants + animals? This site helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Endangered Poetry help you find the animal you're looking for."
    });
 };
 
