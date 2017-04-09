@@ -27,9 +27,6 @@ router.post('/poem/:poemid/comment/new', ctrlPoems.doAddComment);
 // router.get('/poem/comment/new', ctrlTest.addComment);
 // router.post('/poem/:poemid/comment/new', ctrlTest.doAddComment);
 
-
-
-
 /* Other pages */
 router.get('/about', ctrlOthers.about);
 router.get('/poem2', ctrlOthers.poem2function);

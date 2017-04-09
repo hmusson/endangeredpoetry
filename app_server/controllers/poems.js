@@ -68,7 +68,7 @@ var _showError = function (req, res, status) {
 };
 
 var renderHomepage = function(req, res, responseBody){
-  res.render('poemhome', {
+  res.render('bootstraptest', {
     title: 'Endangered Poetry -- Poems about endangered animals',
     pageHeader: {
       title: 'Endangered Poetry',
