@@ -16,8 +16,5 @@ block content
           h4 
             a(href="/poem/{{ poem._id }}") {{ poem.name }}
             //- small
-          p
-            span.label.label-warning.label-facility(ng-repeat="facility in poem.facilities")
-              | {{ facility }}
     .col-xs-12.col-sm-4 
       p.lead= sidebar
