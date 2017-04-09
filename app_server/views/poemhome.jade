@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  #banner.page-header
+    .row
+      .col-lg-6
+        h1= pageHeader.title
+         small &nbsp;#{pageHeader.strapline}
+  .row
+    .col-xs-12.col-sm-8(ng-controller="poemListCtrl")
+      label(for="filter") Filter results
+      input#filter(type="text", name="filter", ng-model="textFilter")
+      .error {{ message }}
+      .row.list-group
+        .col-xs-12.list-group-item(ng-repeat="poem in data.poems | filter : textFilter")
+          h4 
+            a(href="/poem/{{ poem._id }}") {{ poem.name }}
+            //- small
+          p
+            span.label.label-warning.label-facility(ng-repeat="facility in poem.facilities")
+              | {{ facility }}
+    .col-xs-12.col-sm-4 
+      p.lead= sidebar

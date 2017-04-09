@@ -68,18 +68,18 @@ var _showError = function (req, res, status) {
 };
 
 var renderHomepage = function(req, res, responseBody){
-  res.render('poem-list', {
+  res.render('poemhome', {
     title: 'Endangered Poetry -- Poems about endangered animals',
     pageHeader: {
       title: 'Endangered Poetry',
-      strapline: 'Endangered Plants + Animals!'
+      //strapline: 'Poetry about Endangered Plants + Animals'
     },
-    sidebar: "Looking to help endangered plants + animals? This site helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Endangered Poetry help you find the animal you're looking for."
+    sidebar: "Looking to help endangered plants + animals? This site helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Endangered Poetry help you find the plant or animal you're looking for."
    });
 };
 
 /* GET 'home' page */
-module.exports.poemlist = function(req, res){
+module.exports.poemhome = function(req, res){
   renderHomepage(req, res);
 };
 

@@ -11,7 +11,6 @@ html(ng-app='endangeredpoetryApp')
       .container
         .navbar-header
           a.navbar-brand(href='/') Home
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
               span.icon-bar
               span.icon-bar
               span.icon-bar
@@ -23,6 +22,8 @@ html(ng-app='endangeredpoetryApp')
                   a(href='/poem2') A Poem
                 li
                   a(href='/poem3') Another Poem
+                li
+                  a(href='/poems/:poemid') A poem from the database
     block content
 
       footer

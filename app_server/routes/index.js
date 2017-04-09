@@ -15,7 +15,7 @@ var ctrlTest = require('../controllers/testcontroller');
 //router.get('/poemList',ctrlLocations.poemList); 
 
 /* Poems pages, should be working, the error is somewhere in the controllers folder in controllers/poems */
-router.get('/', ctrlPoems.poemlist);
+router.get('/', ctrlPoems.poemhome);
 router.get('/poem', ctrlPoems.poemInfo);
 router.get('/poem/comment/new', ctrlPoems.addComment);
 router.post('/poem/:poemid/comment/new', ctrlPoems.doAddComment);
