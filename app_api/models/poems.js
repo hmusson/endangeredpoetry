@@ -23,10 +23,6 @@ var poemSchema = new mongoose.Schema({
     	required: true
     },
     tags:[String],
-    location: {
-        type: [Number],
-        index: '2dsphere'
-    },
     date: Date,
     comments: [commentSchema]
 });
