@@ -156,7 +156,7 @@ var getPoemInfo = function (req, res, callback) {
 
 /* GET 'Poem info' page */
 module.exports.poemInfo = function(req, res){
-  getPoe,Info(req, res, function(req, res, responseData) {
+  getPoemInfo(req, res, function(req, res, responseData) {
     renderDetailPage(req, res, responseData);
   });
 };
