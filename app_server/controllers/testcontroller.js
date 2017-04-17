@@ -7,8 +7,6 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = "https://getting-mean-loc8r.herokuapp.com";
 }
 
-
-
 var renderHomepage = function(req, res, responseBody){
   res.render('homepage', {
     title: 'Endangered Poetry -- Poems about endangered animals',
@@ -19,7 +17,6 @@ var renderHomepage = function(req, res, responseBody){
     sidebar: "Looking to help endangered plants + animals? This site helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Endangered Poetry help you find the place you're looking for."
    });
 };
-
 
 /* GET 'home' page */
 module.exports.poem = function(req, res){

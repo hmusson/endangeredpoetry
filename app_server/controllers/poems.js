@@ -1,22 +1,17 @@
-// /* GET 'home' page */
-// module.exports.homelist = function(req, res){
-// 	res.render('index', { title: 'Home' });
-// };
+/* GET 'home' page */
+  module.exports.homelist = function(req, res){
+res.render('index', { title: 'Home' });
+};
 
-// /* GET 'Location info' page */
-// module.exports.locationInfo = function(req, res){
-// 	res.render('index', { title: 'Location info' });
-// };
+/* GET 'poem' page */
+module.exports.poemList = function(req, res){
+  res.render('singlepoemtest', { title: 'Poem' });
+};
 
-// /* GET 'poem' page */
-// module.exports.poemList = function(req, res){
-// 	res.render('singlepoemtest', { title: 'Poem' });
-// };
-
-// /* GET 'Add review' page */
-// module.exports.addReview = function(req, res){
-// 	res.render('index', { title: 'Add review' });
-// };
+/* GET 'Add review' page */
+module.exports.addComment = function(req, res){
+  res.render('poem-comment-form', { title: 'Add comment' });
+};
 
 
 var request = require('request');
@@ -30,22 +25,6 @@ if (process.env.NODE_ENV === 'production') {
 
 var _isNumeric = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
-};
-
-var _formatDistance = function (distance) {
-  var numDistance, unit;
-  if (distance && _isNumeric(distance)) {
-    if (distance > 1) {
-      numDistance = parseFloat(distance).toFixed(1);
-      unit = 'km';
-    } else {
-      numDistance = parseInt(distance * 1000,10);
-      unit = 'm';
-    }
-    return numDistance + unit;
-  } else {
-    return "?";
-  }
 };
 
 var _showError = function (req, res, status) {
@@ -83,30 +62,6 @@ module.exports.poemhome = function(req, res){
   renderHomepage(req, res);
 };
 
-// var getLocationInfo = function (req, res, callback) {
-//   var requestOptions, path;
-//   path = "/api/locations/" + req.params.locationid;
-//   requestOptions = {
-//     url : apiOptions.server + path,
-//     method : "GET",
-//     json : {}
-//   };
-//   request(
-//     requestOptions,
-//     function(err, response, body) {
-//       var data = body;
-//       if (response.statusCode === 200) {
-//         data.coords = {
-//           lng : body.coords[0],
-//           lat : body.coords[1]
-//         };
-//         callback(req, res, data);
-//       } else {
-//         _showError(req, res, response.statusCode);
-//       }
-//     }
-//   );
-// };
 
 var getPoemInfo = function (req, res, callback) {
   var requestOptions, path;
@@ -146,17 +101,9 @@ var getPoemInfo = function (req, res, callback) {
 //   });
 // };
 
-
-// /* GET 'Location info' page */
-// module.exports.locationInfo = function(req, res){
-//   getLocationInfo(req, res, function(req, res, responseData) {
-//     renderDetailPage(req, res, responseData);
-//   });
-// };
-
 /* GET 'Poem info' page */
 module.exports.poemInfo = function(req, res){
-  getPoe,Info(req, res, function(req, res, responseData) {
+  getPoemInfo(req, res, function(req, res, responseData) {
     renderDetailPage(req, res, responseData);
   });
 };
