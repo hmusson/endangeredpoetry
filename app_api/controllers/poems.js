@@ -135,6 +135,7 @@ module.exports.poemsReadOne = function(req, res) {
         }
         console.log(poem);
         sendJSONresponse(res, 200, poem);
+        
       });
   } else {
     console.log('No poemid specified');
