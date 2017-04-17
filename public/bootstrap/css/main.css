@@ -1644,6 +1644,7 @@
 		font-size: 16.5pt;
 		font-weight: normal;
 		line-height: 1.75;
+		text-align: center;
 	}
 
 		@media screen and (max-width: 1680px) {
