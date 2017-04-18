@@ -13,8 +13,6 @@ router.post('/poem/:poemid/comment/new', ctrlPoems.doAddComment);
 
 /* Other pages */
 router.get('/about', ctrlOthers.about);
-router.get('/poem2', ctrlOthers.poem2function);
-router.get('/poem3', ctrlOthers.poem3function);
 
 module.exports = router;
 
