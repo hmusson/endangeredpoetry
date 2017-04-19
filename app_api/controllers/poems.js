@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Loc = mongoose.model('Poem');
+var Poe = mongoose.model('Poem');
 
 var sendJSONresponse = function(res, status, content) {
   res.status(status);
@@ -120,7 +120,7 @@ var buildPoemList = function(req, res, results, stats) {
 module.exports.poemsReadOne = function(req, res) {
   console.log('Finding poem details', req.params);
   if (req.params && req.params.poemid) {
-    Loc
+    Poe
       .findById(req.params.poemid)
       .exec(function(err, poem) {
         if (!poem) {
@@ -178,7 +178,7 @@ module.exports.poemsReadOne = function(req, res) {
 
 module.exports.poemsCreate = function(req, res) {
   console.log(req.body);
-  Loc.create({
+  Poe.create({
 
     //fitting with whatever the poem schema goes here
 
@@ -248,7 +248,7 @@ module.exports.poemsUpdateOne = function(req, res) {
     });
     return;
   }
-  Loc
+  Poe
     .findById(req.params.poemid)
     .select('-reviews -rating')
     .exec(
@@ -266,11 +266,11 @@ module.exports.poemsUpdateOne = function(req, res) {
         
         //etc etc. with other stuff in the schema
 
-        location.save(function(err, location) {
+        poem.save(function(err, poem) {
           if (err) {
             sendJSONresponse(res, 404, err);
           } else {
-            sendJSONresponse(res, 200, location);
+            sendJSONresponse(res, 200, poem);
           }
         });
       }
@@ -304,7 +304,7 @@ module.exports.poemsUpdateOne = function(req, res) {
 module.exports.poemsDeleteOne = function(req, res) {
   var poemid = req.params.poemid;
   if (poemid) {
-    Loc
+    Poe
       .findByIdAndRemove(poemid)
       .exec(
         function(err, poem) {//not sure about that second parameter

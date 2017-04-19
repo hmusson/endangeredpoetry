@@ -1,8 +1,14 @@
 var mongoose = require('mongoose');
 
 var commentSchema = new mongoose.Schema({
-    author: {type: String, required: true},
-    reviewText: {type: String, required: true},
+    author: {
+        type: String, 
+        required: true
+    },
+    reviewText: {
+        type: String, 
+        required: true
+    },
     createdOn: {
         type: Date,
         "default": Date.now
