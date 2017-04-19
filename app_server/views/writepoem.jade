@@ -1,0 +1,12 @@
+h2
+  | Write a poem 
+  h2
+    form(name='poem_form', ng-submit='writePoemCon.writePoem()')
+      | Author: 
+      input#name(type='text', required='', ng-model='writePoemCon.name')
+      |   Poem Text: 
+      input#text(type='text', required='', ng-model='writePoemCon.text')
+      |   Tags: 
+      input#tags(type='text', required='', ng-model='addfacCon.tags')
+      br
+      button(type='submit')  Post Poem 
