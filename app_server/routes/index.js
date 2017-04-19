@@ -15,9 +15,3 @@ router.post('/poem/:poemid/comment/new', ctrlPoems.doAddComment);
 router.get('/about', ctrlOthers.about);
 
 module.exports = router;
-
-// //testing where the error is
-// router.get('/', ctrlTest.poemlist);
-// router.get('/poem', ctrlTest.poemInfo);
-// router.get('/poem/comment/new', ctrlTest.addComment);
-// router.post('/poem/:poemid/comment/new', ctrlTest.doAddComment);
