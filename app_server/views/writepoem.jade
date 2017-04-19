@@ -1,12 +1,29 @@
-h2
-  | Write a poem 
-  h2
-    form(name='poem_form', ng-submit='writePoemCon.writePoem()')
-      | Author: 
-      input#name(type='text', required='', ng-model='writePoemCon.name')
-      |   Poem Text: 
-      input#text(type='text', required='', ng-model='writePoemCon.text')
-      |   Tags: 
-      input#tags(type='text', required='', ng-model='addfacCon.tags')
-      br
-      button(type='submit')  Post Poem 
+doctype html
+html(ng-app='endangeredpoetryApp')
+
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/main.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    
+  body
+    h2
+      | Write a poem 
+      h2
+        form(name='poem_form', ng-submit='writePoemCon.writePoem()')
+          | Author: 
+          input#name(type='text', required='', ng-model='writePoemCon.name')
+          |   Poem Text: 
+          input#text(type='text', required='', ng-model='writePoemCon.text')
+          |   Tags: 
+          input#tags(type='text', required='', ng-model='addfacCon.tags')
+          br
+          button(type='submit')  Post Poem 
+
+    script(src='/javascripts/jquery-1.11.1.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/angular/angular.min.js')
+    script(src='/angular/endangeredpoetryApp.js')
+    script(src='/javascripts/validation.js')
+

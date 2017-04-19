@@ -11,6 +11,9 @@ router.get('/poem', ctrlPoems.poemInfo);
 router.get('/poem/comment/new', ctrlPoems.addComment);
 router.post('/poem/:poemid/comment/new', ctrlPoems.doAddComment);
 
+/* testing! */
+router.get('/writepoem', ctrlPoems.writePoem)
+
 /* Other pages */
 router.get('/about', ctrlOthers.about);
 

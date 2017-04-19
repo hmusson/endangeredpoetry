@@ -15,22 +15,34 @@ var commentSchema = new mongoose.Schema({
     }
 });
 
+// var poemSchema = new mongoose.Schema({
+//     author: {
+//     	type: String,
+//     	required: true
+//     },
+//     title: {
+//     	type: String,
+//     	required: true
+//     },
+//     text: {
+//     	type: String,
+//     	required: true
+//     },
+//     tags:[String],
+//     date: Date,
+//     comments: [commentSchema]
+// });
+
 var poemSchema = new mongoose.Schema({
-    author: {
-    	type: String,
-    	required: true
-    },
-    title: {
-    	type: String,
-    	required: true
+    name: {
+        type: String,
+        required: true
     },
     text: {
-    	type: String,
-    	required: true
+        type: String,
+        required: true
     },
-    tags:[String],
-    date: Date,
-    comments: [commentSchema]
+    tags:[String]
 });
 
 mongoose.model('Poem', poemSchema);

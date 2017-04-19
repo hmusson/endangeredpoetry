@@ -1,3 +1,8 @@
+/*testing jade writepoem file*/
+module.exports.writePoem = function(req, res) {
+  res.render('writepoem', {title: 'Write a new poem'})
+};
+
 /* GET 'home' page */
   module.exports.homelist = function(req, res){
 res.render('index', { title: 'Home' });
