@@ -8,6 +8,13 @@
       .when('/writepoem', { 
           templateUrl: 'views/writepoem.jade',
           controller: 'writePoemController', controllerAs: 'writePoemCon' })
-    }
+    
+
+    .when('/poem/:id', {
+    	  templateUrl: 'views/one_poem.jade',
+        //TODO: make one_poem.jade file
+    	  controller: 'getOnePoemController', controllerAs: 'getOnePoemCon'
+    })
+}
 
 })();

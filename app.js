@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('./app_api/models/db');
 
-var routes = require('./app_server/routes/index');
+var routes = require('./app_client/routes/index');
 var routesApi = require('./app_api/routes/index');
 
 var app = express();
@@ -21,7 +21,7 @@ var app = express();
 // app.use('/', poemList);
 
 // view engine setup
-app.set('views', path.join(__dirname,'app_server', 'views'));
+app.set('views', path.join(__dirname,'app_client', 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
