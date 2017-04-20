@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title> Haiku Heaven </title>
+    <style>
+        body {background-color:lightblue }
+    </style>
+   
+</head>
+
+<body>
+    <p> This is index.html in app_client </p>
+    <!--- insert templates form angular inside this div -->  
+    <div ng-view> </div>  
+
+<!--- Reference --> 
+<script src="public/angular/angular.min.js">  </script> 
+<script src="public/angular/angular-route.min.js">  </script> 
+
+<script src="angular.app.js">  </script>  <!--- This is the angular app w angular routes -->
+
+<script src="other/controller.js">  </script>
+
+<!--- <script src="datafactory/datafactory.js"> </script> -->
+
+</body>
+</html>
