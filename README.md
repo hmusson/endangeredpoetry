@@ -1,2 +1,2 @@
 # poetry
-mills college
+mills college, cs 186 / 286
