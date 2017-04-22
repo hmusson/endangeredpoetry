@@ -6,43 +6,31 @@ html(ng-app='endangeredpoetryApp')
     link(rel='stylesheet', href='/bootstrap/css/main.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-  body
+  body(ng-controller='writePoemController')
     .jumbotron.text-center
     h1 Endangered Poetry
     p Poetry about endangered plants and animals
+    .center-div
+      .navbar.navbar-default.navbar-fixed-top
+        .container
+          ul.nav
+            .row
+              .col-sm-3
+                center-li: a(href='/') Home
+              .col-sm-6
+                 center-li: a(href='/about') About
+              .col-sm-9
+                 center-li: a(href='/#/writepoem') Add a Poem
+              .col-sm-12
+                 center-li: a(href='/login') Login
+    
 
-    ul.nav
-      .row
-        .col-sm-3
-          li: a(href='/') Home
-        .col-sm-3
-          li: a(href='#news') News
-        .col-sm-3
-          li: a(href='/about') About
-        .col-sm-3
-          li: a(href='#contact') Contact
-
-    .navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          a.navbar-brand(href='/') Home
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            #navbar-main.navbar-collapse.collapse
-              ul.nav.navbar-nav
-                li
-                  a(href='/about/') About
-                li
-                  a(href='/poem') Add a Poem
-                li
-                  a(href='/poems/:poemid') A poem from the database
-    block content
+  block content
 
       footer
         .row
           .col-xs-12
-            small &copy; HBEJ
+            small &copy; HBE
 
     script(src='/javascripts/jquery-1.11.1.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
