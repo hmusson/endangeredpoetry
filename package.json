@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "jade": "~1.11.0",
     "mongoose": "^4.9.4",
     "morgan": "~1.7.0",
+    "request": "^2.80.0",
     "serve-favicon": "~2.3.2"
   }
 }
