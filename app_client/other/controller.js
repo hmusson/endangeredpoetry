@@ -40,7 +40,7 @@
   angular.module('myApp').controller('GetOnePoemController', GetOnePoemController);
   
   // Better views 
-  angular.module('myApp').controller('AllPoemsController', AllPoemsController);
+  //angular.module('myApp').controller('AllPoemsController', AllPoemsController);
   angular.module('myApp').controller('AddPoemController', AddPoemController);
  
   // angular.module('myApp').controller('RegisterController', RegisterController);
@@ -50,7 +50,6 @@
   
   function PoemController($http) {
     
-    // for testing 
     var myModel = this;
     myModel.name = 'Poems';
     
@@ -113,7 +112,7 @@
         $http.post('/api/poems/', postData).then(function(response) {
                 vm.newpoem = response.data;
                 console.log(response.status);
-                window.location = "#/allpoems";
+                window.location = "#/success";
       });
   };
  }

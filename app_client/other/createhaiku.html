@@ -1,17 +1,12 @@
 <h2>Add a poem <h2>
 
-<form name="poem_form" ng-submit="AddPoemController.addPoem()">
-  Name: <input  type= "text" id="name" required ng-minlength="2" ng-maxlength="150" 
-          ng-model ="AddPoemController.name" >
-
-<div ng-show="poem_form.name.$dirty && poem_form.name.$invalid">
-    <p>The name field is required and must have 2 to 150 characters</p>        
-  </div>
+<form name="poem_form" ng-submit="AddPoemCon.addPoem()">
+  Name: <input  type= "text" id="name" required ng-model ="AddPoemCon.name" >
   
-  Text: <input  type= "text" id="text" required ng-model ="writePoemCon.s" >
+  Text: <input  type= "text" id="text" required ng-model ="AddPoemCon.text" >
           
-  Tags: <input  type= "text" id="tags" required  ng-model ="writePoemCon.tags" >    
-          
+  Tags: <input  type= "text" id="tags" required ng-model ="AddPoemCon.tags" >  
+  
   <br> <button type= "submit"> Add New Poem</button>
   
 </form>
