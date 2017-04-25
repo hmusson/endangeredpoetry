@@ -12,7 +12,7 @@
 
       .when('/writepoem', { 
           templateUrl: 'other/createhaiku.html',
-          controller: 'writePoemController', controllerAs: 'writePoemCon' })
+          controller: 'AddPoemController', controllerAs: 'AddPoemCon' })
     
 
       .when('/poem/:id', {

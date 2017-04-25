@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var ctrlPoems = require('../controllers/poems');
-var ctrlComments = require('../controllers/comments');
+
+var ctrlPoems = require('../controllers/poems.js');
+//var ctrlComments = require('../controllers/comments');
 
 
 // router.post('/poems', ctrlPoems.poemsCreate); //create
@@ -17,21 +18,22 @@ var ctrlComments = require('../controllers/comments');
 
 router
 	.route('/poems')
-	.post(ctrlPoems.poemsCreate);
+	.post(ctrlPoems.poemAddOne)
+	.get(ctrlPoems.poemGetAll);
 
 router
 	.route('/poems/:poemid')
-	.get(ctrlPoems.poemsReadOne)
-	.put(ctrlPoems.poemsUpdateOne)
-	.delete(ctrlPoems.poemsDeleteOne);
+	.get(ctrlPoems.poemGetOne)
+	.put(ctrlPoems.poemUpdateOne)
+	.delete(ctrlPoems.poemDeleteOne);
 
-router
-	.route('/poems/:poemid/comments')
-	.post(ctrlComments.commentsCreate);
+// router
+// 	.route('/poems/:poemid/comments')
+// 	.post(ctrlComments.commentsCreate);
 
-router
-	.route('/poems/:poemid/comments/:commentid')
-	.get(ctrlComments.commentsReadOne)
-	.put(ctrlComments.commentsUpdateOne);
+// router
+// 	.route('/poems/:poemid/comments/:commentid')
+// 	.get(ctrlComments.commentsReadOne)
+// 	.put(ctrlComments.commentsUpdateOne);
 
 module.exports = router;

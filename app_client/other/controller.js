@@ -113,7 +113,7 @@
         $http.post('/api/poems/', postData).then(function(response) {
                 vm.newpoem = response.data;
                 console.log(response.status);
-                window.location = "#/allpoems";
+                window.location = "#/about";
       });
   };
  }
