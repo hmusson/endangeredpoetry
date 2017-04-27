@@ -2,6 +2,7 @@ body {
   padding: 50px;
   font-family: "Helvetica", "Arial", sans-serif;
   background-color: lightblue;
+  
 
 }
 
@@ -10,6 +11,14 @@ a {
 }
 
 
-h1 {
-    color: rgb(240,240,240);
+h1, h3 {
+    color: rgb(235,235,235);
+}
+
+#title {
+   text-decoration-line: none;
+}
+
+p {
+  color:black;
 }

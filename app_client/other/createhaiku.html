@@ -1,12 +1,27 @@
-<h2>Add a poem <h2>
+<h3>Add a poem <h3>
+<p></p>
+
+<hr/>
 
 <form name="poem_form" ng-submit="AddPoemCon.addPoem()">
-  Name: <input  type= "text" id="name" required ng-model ="AddPoemCon.name" >
+  Your Name: <input  type= "text" id="name" required ng-model ="AddPoemCon.name" >
+
+  <hr/>
   
-  Text: <input  type= "text" id="text" required ng-model ="AddPoemCon.text" >
+  Text: <br>
+  <input  type= "text" id="text1" required ng-model ="AddPoemCon.text" >
+  <br>
+    <input  type= "text" id="text2" required ng-model ="AddPoemCon.text" >
+    <br>
+    <input  type= "text" id="text3" required ng-model ="AddPoemCon.text" >
+
+  <hr/>
           
   Tags: <input  type= "text" id="tags" required ng-model ="AddPoemCon.tags" >  
+  <br>
   
-  <br> <button type= "submit"> Add New Poem</button>
+  <br> <button type= "submit"> Add Poem</button>
   
 </form>
+
+</p>
