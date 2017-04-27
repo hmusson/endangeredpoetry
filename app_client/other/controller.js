@@ -16,7 +16,7 @@
   function PoemController($http) {
     
     var myModel = this;
-    myModel.name = 'Poems';
+    myModel.title = 'Poems';
     
     $http.get('/api/poems').then(function(response) {   // use .then instead of .success
         myModel.response = response.name;

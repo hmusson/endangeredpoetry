@@ -5,7 +5,7 @@
   // $routeProvider allows to set up routes 
   function myConfig ($routeProvider) {
     $routeProvider
-      .when('/', {   template: '<p>A place for haikus</p>',  })
+      .when('/', {   template: '<img src="http://thecrocodile.org/new_site/wp-content/uploads/2016/11/cloud-08.jpg" alt="little cloud" style="width:210px;height:135px;"><h3>A place for haikus</h3>',  })
 
       .when('/success', { templateUrl: 'other/creation_successful.html'})
 
