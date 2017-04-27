@@ -20,5 +20,6 @@ h1, h3 {
 }
 
 p {
-  color:black;
+  color: rgb(230,230,230);
+  font-size: small;
 }
