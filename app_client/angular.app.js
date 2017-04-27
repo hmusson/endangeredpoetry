@@ -5,7 +5,7 @@
   // $routeProvider allows to set up routes 
   function myConfig ($routeProvider) {
     $routeProvider
-      .when('/', {   template: '<p>This is the root page /  </p>',  })
+      .when('/', {   template: '<p>A place for haikus</p>',  })
 
       .when('/success', { templateUrl: 'other/creation_successful.html'})
 

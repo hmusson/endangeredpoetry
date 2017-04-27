@@ -1,48 +1,13 @@
-// (function() {
-
-// 	angular.module('myApp').controller('writePoemController', writePoemController);
-// 	angular.module('myApp').controller('getOnePoemController', getOnePoemController);
-	
-
-// 	function writePoemController($http) {
-// 		var vm = this;
-// 		vm.writePoem = function() {
-// 			var postData = {
-// 				name: vm.name,
-// 				text: vm.text,
-// 				tags: vm.tags
-// 			};
-// 			console.log(postData);
-// 			$http.post('/api/poems', postData).then(function(response) {
-// 				vm.writepoem = response.data;
-// 				console.log(response.status);
-// 				window.location = '#/'
-// 			});
-// 		};
-// 	}
-
-// 	function getOnePoemController($http, $routeParams) {
-// 		var vm = this; 
-// 		console.log($routeParams);
-// 		var id = $routeParams.id;
-
-// 		$http.get('/api/poems' + id)
-// 			.then(function(response) {
-// 				vm.poems = response.data;
-// 			});
-// 	}
-// }
 
 (function () {     // Building controllers for api http requests 
 
   // asssign controllers to myApp module 
-  angular.module('myApp').controller('PoemController', PoemController);
+  angular.module('myApp').controller('PoemController', PoemController); //basically all poems
   angular.module('myApp').controller('GetOnePoemController', GetOnePoemController);
   
-  // Better views 
   //angular.module('myApp').controller('AllPoemsController', AllPoemsController);
   angular.module('myApp').controller('AddPoemController', AddPoemController);
- 
+
   // angular.module('myApp').controller('RegisterController', RegisterController);
   // angular.module('myApp').controller('LoginController', LoginController);
   // angular.module('myApp').controller('AllUsersController', AllUsersController);
@@ -77,7 +42,7 @@
         $http.delete('/api/poems/' + $routeParams.id)       
              .then(function(response) {  
                 console.log(response.status);
-                window.location = "#/allpoems";   });
+                window.location = "#/";   }); //back to main page, "#/allpoems" is an alternative
                
      }   
   }
