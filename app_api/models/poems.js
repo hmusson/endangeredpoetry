@@ -47,7 +47,7 @@ var poemSchema = new mongoose.Schema({
         type: String,
     },
     tags: {
-        type: String,
+        type: [String],
     }
 
 });

@@ -19,7 +19,7 @@
     myModel.name = 'Poems';
     
     $http.get('/api/poems').then(function(response) {   // use .then instead of .success
-        myModel.response = response;
+        myModel.response = response.name;
        
       });
        
