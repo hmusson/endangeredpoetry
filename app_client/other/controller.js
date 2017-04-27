@@ -69,7 +69,9 @@
         
         var postData = {
 				name: vm.name,
-				text: vm.text,
+				text1: vm.text1,
+				text2: vm.text2,
+				text3: vm.text3,
 				tags: vm.tags
         };
     

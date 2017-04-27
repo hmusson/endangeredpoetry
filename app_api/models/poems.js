@@ -37,7 +37,13 @@ var poemSchema = new mongoose.Schema({
     name: {
         type: String,
     },
-    text: {
+    text1: {
+        type: String,
+    },
+    text2 : {
+        type: String,
+    },
+    text3: {
         type: String,
     },
     tags: {

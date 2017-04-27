@@ -49,7 +49,9 @@ module.exports.poemAddOne = function(req, res) {
   Poems
     .create({
       name : req.body.name,
-      text : req.body.text,
+      text1 : req.body.text1,
+      text2 : req.body.text2,
+      text3 : req.body.text3,
       tags : req.body.tags
      
     }, function(err, poems) {
