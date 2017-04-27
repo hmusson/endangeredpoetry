@@ -11,10 +11,14 @@ a {
 }
 
 
-h1 {
+h1, h3 {
     color: rgb(235,235,235);
 }
 
 #title {
    text-decoration-line: none;
+}
+
+p {
+  color:black;
 }
